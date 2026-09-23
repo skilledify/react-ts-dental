@@ -8,7 +8,7 @@ import Specialists from "../components/Specialists/Specialists"
 import Price from "../components/Price/Price"
 import News from "../components/News/News"
 import FormSection  from "../components/FormSection/FormSection"
-
+import Reviews from "../components/Reviews/Reviews"
 
 
 const HomePage: FC = () => {
@@ -20,6 +20,7 @@ const HomePage: FC = () => {
      <Specialists />
      <Price />
      <News />
+     <Reviews />
       <FormSection/>
       </>
   )
