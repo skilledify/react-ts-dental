@@ -66,18 +66,18 @@ export const Specialists: React.FC<SpecialistsProps> = ({
         </div>
 
         {/* Grid / List of Specialists */}
-        <div className="gap-4 sm:gap-[18px] lg:gap-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 specialists-row">
+        <div className="gap-x-4 gap-y-6 sm:gap-x-[18px] sm:gap-y-5 lg:gap-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 specialists-row">
           {specialists.map((item) => (
             <a
               key={item.id}
               href={item.link || '#'}
-              className="block bg-[#2378c9] shadow-[0_0_8px_-1px_rgba(29,28,28,0.28)] rounded-[10px] sm:rounded-[20px] overflow-hidden transition-transform hover:-translate-y-1 duration-300 specialists-item"
+              className="block bg-[#2378c9] shadow-[0_0_8px_-1px_rgba(29,28,28,0.28)] rounded-[10px] sm:rounded-[20px] overflow-hidden transition-transform md:hover:-translate-y-1 duration-300 specialists-item"
             >
               <div className="w-full overflow-hidden specialists-image">
                 <img
                   src={item.image}
                   alt={item.name}
-                  className="display-block w-full h-auto object-cover"
+                  className="block w-full h-auto object-cover"
                   loading="lazy"
                 />
               </div>
