@@ -28,7 +28,7 @@ export const NotFoundPage: React.FC = () => {
         {/* Кнопка На главную (замените на <Link to="/"> для React Router или <Link href="/"> для Next.js) */}
         <a
           href="/"
-          // className="inline-flex justify-center items-center bg-indigo-600 hover:bg-indigo-500 dark:bg-indigo-500 dark:hover:bg-indigo-400 shadow-sm px-5 py-3 rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-600 focus-visible:outline-offset-2 font-semibold text-white text-sm transition-colors"
+           className="inline-flex justify-center items-center bg-indigo-600 hover:bg-indigo-500 dark:bg-indigo-500 dark:hover:bg-indigo-400 shadow-sm px-5 py-3 rounded-lg focus-visible:outline-1 focus-visible:outline-indigo-600 focus-visible:outline-offset-2 font-semibold text-white text-sm transition-colors"
         >
           На главную
         </a>
@@ -36,7 +36,7 @@ export const NotFoundPage: React.FC = () => {
         {/* Кнопка Назад */}
         <button
           onClick={() => window.history.back()}
-          // className="inline-flex justify-center items-center bg-white hover:bg-slate-50 dark:bg-slate-800 dark:hover:bg-slate-700 shadow-sm px-5 py-3 border border-slate-300 dark:border-slate-700 rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-600 focus-visible:outline-offset-2 font-semibold text-slate-700 dark:text-slate-200 text-sm transition-colors"
+           className="inline-flex justify-center items-center bg-white hover:bg-slate-50 dark:bg-slate-800 dark:hover:bg-slate-700 shadow-sm px-5 py-3 border border-slate-300 dark:border-slate-700 rounded-lg focus-visible:outline-1 focus-visible:outline-indigo-600 focus-visible:outline-offset-2 font-semibold text-slate-700 dark:text-slate-200 text-sm transition-colors"
         >
           <svg
             className="mr-2 -ml-1 w-4 h-4"

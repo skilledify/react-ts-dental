@@ -56,9 +56,9 @@ const DEFAULT_HOURS: WorkingHour[] = [
 ];
 
 const SOCIAL_LINKS: SocialLink[] = [
-  { name: 'Twitter', iconSrc: 'src/assets/images/twitter.svg', href: '#' },
-  { name: 'Instagram', iconSrc: 'src/assets/images/instagram.svg', href: '#' },
-  { name: 'Vk', iconSrc: 'src/assets/images/vk.svg', href: '#' },
+  { name: 'Twitter', iconSrc: '../../src/assets/images/twitter.svg', href: '#' },
+  { name: 'Instagram', iconSrc: '../../src/assets/images/instagram.svg', href: '#' },
+  { name: 'Vk', iconSrc: '../../src/assets/images/vk.svg', href: '#' },
 ];
 
 export const Footer: React.FC<FooterProps> = ({
@@ -84,21 +84,21 @@ export const Footer: React.FC<FooterProps> = ({
           <div className="flex flex-col items-center lg:items-start order-1 lg:order-none mr-0 lg:mr-[40px] xl:mr-[80px] py-10 lg:py-[65px] pr-0 lg:pr-[40px] xl:pr-[80px] border-white/35 border-r-0 lg:border-r w-full lg:w-auto lg:text-left text-center shrink-0">
             {/* Логотип */}
             <a href="/" className="block mb-[50px] lg:mb-[80px]">
-              <img src="src/assets/images/footer-logo.svg" alt="Dental Tooth" className="max-w-full h-auto" />
+              <img src="../../src/assets/images/footer-logo.svg" alt="Dental Tooth" className="max-w-full h-auto" />
             </a>
 
             {/* Контактные данные */}
             <div className="space-y-[24px] mb-[70px] lg:mb-[75px] max-w-[220px]">
               <div className="flex items-center text-left">
                 <span className="inline-block mr-3 w-5 text-center shrink-0">
-                  <img src="src/assets/images/location.svg" alt="Локация" className="mx-auto align-middle" />
+                  <img src="../../src/assets/images/location.svg" alt="Локация" className="mx-auto align-middle" />
                 </span>
                 <span>{address}</span>
               </div>
 
               <div className="flex items-center text-left">
                 <span className="inline-block mr-3 w-5 text-center shrink-0">
-                  <img src="src/assets/images/phone.svg" alt="Телефон" className="mx-auto align-middle" />
+                  <img src="../../src/assets/images/phone.svg" alt="Телефон" className="mx-auto align-middle" />
                 </span>
                 <a href={`tel:${phone.replace(/\s+/g, '')}`} className="text-white hover:underline">
                   {phone}
@@ -107,7 +107,7 @@ export const Footer: React.FC<FooterProps> = ({
 
               <div className="flex items-center text-left">
                 <span className="inline-block mr-3 w-5 text-center shrink-0">
-                  <img src="src/assets/images/envelope.svg" alt="Email" className="mx-auto align-middle" />
+                  <img src="../../src/assets/images/envelope.svg" alt="Email" className="mx-auto align-middle" />
                 </span>
                 <a href={`mailto:${email}`} className="text-white hover:underline">
                   {email}
