@@ -10,11 +10,15 @@ import ContactsPage from "./pages/ContactsPage";
 import BlogSinglePage from "./pages/BlogSinglePage";
 import DentistPage from "./pages/DentistPage";
 import NotFoundPage from "./pages/NotFoundPage"; 
+import ScrollToTop  from "./components/ScrollToTop";
 
 
 const App: FC = () => {
   return (
-
+    <>
+    
+ 
+   <ScrollToTop />
       <Routes>
         {/* Родительский роут с MainLayout */}
         <Route element={<MainLayout />}>
@@ -29,7 +33,7 @@ const App: FC = () => {
         <Route path={AppRoutes.NOT_FOUNDPAGE} element={<NotFoundPage />} />
       </Routes>
 
+   </>
   );
 };
-
 export default App;

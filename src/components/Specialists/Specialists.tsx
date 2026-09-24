@@ -59,7 +59,7 @@ export const Specialists: React.FC<SpecialistsProps> = ({
             {title}
           </h2>
           {description && (
-            <div className="mx-auto max-w-[800px] text-[12px] text-gray-600 sm:text-[14px] text-center leading-[1.5] def-description">
+            <div className="mx-auto max-w-[800px] text-[14px] text-gray-600 sm:text-[18px] text-center leading-[1.5] def-description">
               {description}
             </div>
           )}
@@ -85,7 +85,7 @@ export const Specialists: React.FC<SpecialistsProps> = ({
                 <div className="mb-[7px] font-bold text-[16px] lg:text-[18px] specialists-name">
                   {item.name}
                 </div>
-                <div className="text-[12px] lg:text-[14px] specialists-profi">
+                <div className="text-[14px] lg:text-[16px] specialists-profi">
                   {item.profession}
                 </div>
               </div>
