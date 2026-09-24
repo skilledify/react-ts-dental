@@ -27,7 +27,7 @@ export const NotFoundPage: React.FC = () => {
       <div className="flex sm:flex-row flex-col gap-4 mt-10">
         {/* Кнопка На главную (замените на <Link to="/"> для React Router или <Link href="/"> для Next.js) */}
         <a
-          href="/"
+          href="/react-ts-dental"
            className="inline-flex justify-center items-center bg-indigo-600 hover:bg-indigo-500 dark:bg-indigo-500 dark:hover:bg-indigo-400 shadow-sm px-5 py-3 rounded-lg focus-visible:outline-1 focus-visible:outline-indigo-600 focus-visible:outline-offset-2 font-semibold text-white text-sm transition-colors"
         >
           На главную

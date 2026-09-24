@@ -1,9 +1,12 @@
 import type { FC } from "react"
+import BlogSingle from "../components/BlogSingle/BlogSingle"
 
 
 const BlogSinglePage: FC = () => {
   return (
-    <div>BlogSinglePage</div>
+    <div>
+      <BlogSingle/>
+    </div>
   )
 }
 
