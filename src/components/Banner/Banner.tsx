@@ -6,7 +6,7 @@ import logoImg from '../../assets/images/banner-logo.png';
 
 export const Banner: React.FC = () => {
   return (
-    <section className="bg-[#0e6eaa] py-10 lg:py-0 text-white banner">
+    <section id="hero" className="bg-[#0e6eaa] py-10 lg:py-0 text-white banner">
       <div className="mx-auto px-4 banner__container container">
         <div className="relative flex lg:flex-row flex-col items-center banner__row">
           

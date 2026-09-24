@@ -122,7 +122,7 @@ export const About: React.FC<AboutProps> = ({
   imageAlt = 'О стоматологической клинике Dental Tooth',
 }) => {
   return (
-    <section className="bg-white py-[48px] lg:py-[110px]">
+    <section id="services" className="bg-white py-[48px] lg:py-[110px]">
       <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-[1200px]">
         <div className="flex lg:flex-row flex-col items-start lg:items-center gap-[30px] lg:gap-[60px]">
           

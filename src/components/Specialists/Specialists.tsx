@@ -51,7 +51,7 @@ export const Specialists: React.FC<SpecialistsProps> = ({
   specialists = DEFAULT_SPECIALISTS,
 }) => {
   return (
-    <section className="py-[50px] lg:py-[90px] text-center s-specialists">
+    <section id="specialists" className="py-[50px] lg:py-[90px] text-center s-specialists">
       <div className="mx-auto px-4 container">
         {/* Title Block */}
         <div className="mb-8 lg:mb-10 def-title-wrapper">
