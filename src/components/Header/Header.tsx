@@ -152,6 +152,7 @@ export const Header: React.FC = () => {
         </div>
 
         <div className="text-center mobile-menu-body">
+
           <a href="tel:4950000000" className="flex justify-center items-center mb-6 text-white">
             <img src={phoneIcon} alt="Телефон" className="mr-3 w-4 h-4" />
             <span>+7 (495) 000 00 00</span>
@@ -161,13 +162,12 @@ export const Header: React.FC = () => {
             <img src={envelopeIcon} alt="Email" className="mr-3 w-4 h-4" />
             <span>info@dentaltooth.ru</span>
           </a>
-
-          <div className="flex justify-center items-center space-x-6 mb-8">
+                <div className="flex justify-center items-center space-x-6 mb-8">
             <a href="#"><img src={twitterIcon} alt="Twitter" className="w-5" /></a>
             <a href="#"><img src={instagramIcon} alt="Instagram" className="w-5" /></a>
             <a href="#"><img src={vkIcon} alt="Vk" className="w-5" /></a>
           </div>
-
+          
           <nav className="mt-8 mobile-menu-nav">
             <ul className="space-y-6">
               {navItems.map((item, index) => (
@@ -183,6 +183,9 @@ export const Header: React.FC = () => {
               ))}
             </ul>
           </nav>
+
+
+
         </div>
       </div>
 

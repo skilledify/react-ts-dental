@@ -11,7 +11,6 @@ import BlogSinglePage from "./pages/BlogSinglePage";
 import DentistPage from "./pages/DentistPage";
 import NotFoundPage from "./pages/NotFoundPage"; 
 
-import "./App.css";
 
 const App: FC = () => {
   return (
