@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import { Route, Routes } from 'react-router';
 import { AppRoutes } from "./constants/global.constants";
-
+import { BrowserRouter } from 'react-router';
 import {MainLayout} from "./components/Layouts/MainLayout";
 
 import HomePage from "./pages/HomePage";
@@ -10,16 +10,16 @@ import ContactsPage from "./pages/ContactsPage";
 import BlogSinglePage from "./pages/BlogSinglePage";
 import DentistPage from "./pages/DentistPage";
 import NotFoundPage from "./pages/NotFoundPage"; 
-import ScrollToTop  from "./components/ScrollToTop";
+import ScrollToTop from "./components/ScrollToTop";
+
 
 
 const App: FC = () => {
   return (
     <>
-    
- 
-   <ScrollToTop />    
-      <Routes>
+        <BrowserRouter basename="/react-ts-dental">
+        <ScrollToTop/>
+            <Routes>
         {/* Родительский роут с MainLayout */}
         <Route element={<MainLayout />}>
           <Route index element={<HomePage />} />
@@ -32,6 +32,10 @@ const App: FC = () => {
         {/* Страница 404 без Header и Footer */}
         <Route path={AppRoutes.NOT_FOUNDPAGE} element={<NotFoundPage />} />
       </Routes>
+        
+        
+        </BrowserRouter>
+
    </>
   );
 };

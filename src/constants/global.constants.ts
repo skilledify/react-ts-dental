@@ -3,6 +3,6 @@
     BLOGPAGE: "/blog",
     BLOGSINGLEPAGE: "/blog/:id",
     CONTACTSPAGE: "/contacts",
-    DENTISTPAGE: "/dentist",
+    DENTISTPAGE: "/dentist/:id",
     NOT_FOUNDPAGE: "*",    
      } as const;

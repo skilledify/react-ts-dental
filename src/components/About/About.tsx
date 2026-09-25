@@ -192,8 +192,8 @@ export const About: React.FC<AboutProps> = ({
                     >
                       <span className="inline-block bg-[#2378c9] mr-3 sm:mr-4 rounded-full w-[10px] sm:w-[12px] h-[10px] sm:h-[12px] shrink-0" />
                       <span className="font-medium text-[15px] text-gray-800 sm:text-[18px] lg:text-[20px]">
-                        {item}
                       </span>
+                        {item}
                     </li>
                   ))}
                 </ul>
