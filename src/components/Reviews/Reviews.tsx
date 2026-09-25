@@ -100,9 +100,9 @@ const DEFAULT_REVIEWS: ReviewItem[] = [
   },
   {
     id: 4,
-    name: 'Анаолий Ким',
+    name: 'Виктор Ким',
     avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80',
-    avatarAlt: 'Анатолий Ким ',
+    avatarAlt: 'Виктор Ким ',
     text: 'Высокий профессионализм врачей и современное оборудование. Всё объяснили во всех подробностях до начала процедуры. Результатом очень доволен, спасибо всей команде!',
     socials: [
       { href: '#', type: 'vk', ariaLabel: 'VK' },

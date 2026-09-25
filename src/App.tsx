@@ -18,7 +18,7 @@ const App: FC = () => {
     <>
     
  
-   <ScrollToTop />
+   <ScrollToTop />    
       <Routes>
         {/* Родительский роут с MainLayout */}
         <Route element={<MainLayout />}>
@@ -32,7 +32,6 @@ const App: FC = () => {
         {/* Страница 404 без Header и Footer */}
         <Route path={AppRoutes.NOT_FOUNDPAGE} element={<NotFoundPage />} />
       </Routes>
-
    </>
   );
 };

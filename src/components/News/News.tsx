@@ -1,3 +1,5 @@
+
+
 // import React from 'react';
 
 // export interface NewsItem {
@@ -11,7 +13,7 @@
 // }
 
 // interface NewsProps {
-//   sectionTitle?: string;
+//   sectionTitle?: React.ReactNode; // Разрешаем передавать string и JSX
 //   items?: NewsItem[];
 // }
 
@@ -78,6 +80,20 @@
 //   },
 // ];
 
+// // Вспомогательная функция для подсветки текста "Dental Tooth"
+// const highlightTitle = (text: string) => {
+//   const parts = text.split(/(Dental Tooth)/g);
+//   return parts.map((part, index) =>
+//     part === 'Dental Tooth' ? (
+//       <span key={index} className="text-[#2378c9]">
+//         {part}
+//       </span>
+//     ) : (
+//       part
+//     )
+//   );
+// };
+
 // export const News: React.FC<NewsProps> = ({
 //   sectionTitle = 'Новости Dental Tooth',
 //   items = DEFAULT_NEWS,
@@ -86,18 +102,18 @@
 //     <section className="py-[50px] lg:py-[100px] overflow-hidden">
 //       <div className="mx-auto px-4 container">
 //         {/* Заголовок */}
-//         <div className="mb-[30px] lg:mb-10">
-//           <h2 className="font-bold text-[#302d2d] text-[30px] min-[575px]:text-[40px] leading-[38px] min-[575px]:leading-[48px]">
-//             {sectionTitle}
-//           </h2>
-//         </div>
+//         {sectionTitle && (
+//           <div className="mb-[30px] lg:mb-10">
+//             <h2 className="font-bold text-[#302d2d] text-[30px] min-[575px]:text-[40px] leading-[38px] min-[575px]:leading-[48px]">
+//               {typeof sectionTitle === 'string'
+//                 ? highlightTitle(sectionTitle)
+//                 : sectionTitle}
+//             </h2>
+//           </div>
+//         )}
 
 //         {/* Контейнер горизонтального скролла на мобильных/планшетах (< 992px) */}
 //         <div className="max-lg:-mx-4 max-lg:px-4 max-lg:pb-6 max-lg:overflow-x-auto max-lg:snap-mandatory max-lg:snap-x">
-//           {/* 
-//             - До max-lg (до 992px): flex в одну линию с фиксированной/минимальной шириной карточки (300px)
-//             - На lg (от 992px): переключение на 3-колоночную сетку (grid)
-//           */}
 //           <div className="flex lg:gap-5 max-lg:gap-5 lg:grid lg:grid-cols-3 max-lg:w-max">
 //             {items.map((item) => (
 //               <article
@@ -163,6 +179,14 @@
 
 import React from 'react';
 
+// Импортируем изображения прямо в начале файла
+import news1 from '../../assets/images/news-1.jpg';
+import news2 from '../../assets/images/news-2.jpg';
+import news3 from '../../assets/images/news-3.jpg';
+import news4 from '../../assets/images/news-4.jpg';
+import news5 from '../../assets/images/news-5.jpg';
+import news6 from '../../assets/images/news-6.jpg';
+
 export interface NewsItem {
   id: number | string;
   image: string;
@@ -174,14 +198,14 @@ export interface NewsItem {
 }
 
 interface NewsProps {
-  sectionTitle?: React.ReactNode; // Разрешаем передавать string и JSX
+  sectionTitle?: React.ReactNode;
   items?: NewsItem[];
 }
 
 const DEFAULT_NEWS: NewsItem[] = [
   {
     id: 1,
-    image: '../../src/assets/images/news-1.jpg',
+    image: news1,
     date: '05 ноября 2022',
     commentsCount: 0,
     title: 'Что стоматолог может сделать для ваших зубов',
@@ -191,7 +215,7 @@ const DEFAULT_NEWS: NewsItem[] = [
   },
   {
     id: 2,
-    image: '../../src/assets/images/news-2.jpg',
+    image: news2,
     date: '05 ноября 2022',
     commentsCount: 0,
     title: 'Как выбрать стоматологию и не ошибиться?',
@@ -201,7 +225,7 @@ const DEFAULT_NEWS: NewsItem[] = [
   },
   {
     id: 3,
-    image: '../../src/assets/images/news-3.jpg',
+    image: news3,
     date: '05 ноября 2022',
     commentsCount: 0,
     title: 'Сильно болит зуб? Лечение в домашних условиях',
@@ -211,7 +235,7 @@ const DEFAULT_NEWS: NewsItem[] = [
   },
   {
     id: 4,
-    image: '../../src/assets/images/news-4.jpg',
+    image: news4,
     date: '05 ноября 2022',
     commentsCount: 0,
     title: 'Как спасти тетрациклиновые зубы?',
@@ -221,7 +245,7 @@ const DEFAULT_NEWS: NewsItem[] = [
   },
   {
     id: 5,
-    image: '../../src/assets/images/news-5.jpg',
+    image: news5,
     date: '05 ноября 2022',
     commentsCount: 0,
     title: 'Как правильно чистить зубы? 15 советов',
@@ -231,7 +255,7 @@ const DEFAULT_NEWS: NewsItem[] = [
   },
   {
     id: 6,
-    image: '../../src/assets/images/news-6.jpg',
+    image: news6,
     date: '05 ноября 2022',
     commentsCount: 0,
     title: 'Все что Вы хотели узнать про сознательную седацию',

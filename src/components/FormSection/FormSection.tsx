@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import formGirl from '../../assets/images/form-girl.png'
+
 interface FormData {
   name: string;
   phone: string;
@@ -179,7 +181,7 @@ interface FormErrors {
           {/* Изображение справа */}
           <div className="max-lg:hidden right-0 bottom-0 absolute">
             <img
-              src="../../src/assets/images/form-girl.png"
+              src={formGirl}
               alt="Записаться на прием"
               className="block max-w-full h-auto"
             />

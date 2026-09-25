@@ -1,4 +1,14 @@
+
 import React from 'react';
+
+// 1. Импортируем иконки и логотип как модули
+import footerLogoSvg from "../../assets/images/footer-logo.svg";
+import locationSvg from "../../assets/images/location.svg";
+import phoneSvg from "../../assets/images/phone.svg";
+import envelopeSvg from "../../assets/images/envelope.svg";
+import twitterSvg from "../../assets/images/twitter.svg";
+import instagramSvg from "../../assets/images/instagram.svg";
+import vkSvg from "../../assets/images/vk.svg";
 
 interface FooterLink {
   label: string;
@@ -55,10 +65,11 @@ const DEFAULT_HOURS: WorkingHour[] = [
   { day: 'Воскресенье', hours: 'Закрыто' },
 ];
 
+// 2. Используем импортированные иконки соцсетей
 const SOCIAL_LINKS: SocialLink[] = [
-  { name: 'Twitter', iconSrc: '../../src/assets/images/twitter.svg', href: '#' },
-  { name: 'Instagram', iconSrc: '../../src/assets/images/instagram.svg', href: '#' },
-  { name: 'Vk', iconSrc: '../../src/assets/images/vk.svg', href: '#' },
+  { name: 'Twitter', iconSrc: twitterSvg, href: '#' },
+  { name: 'Instagram', iconSrc: instagramSvg, href: '#' },
+  { name: 'Vk', iconSrc: vkSvg, href: '#' },
 ];
 
 export const Footer: React.FC<FooterProps> = ({
@@ -72,33 +83,28 @@ export const Footer: React.FC<FooterProps> = ({
 }) => {
   return (
     <footer className="bg-[#10406f] w-full overflow-hidden text-white shrink-0">
-      {/* 
-        Если вы хотите изменить ширину контента футера,
-        меняйте max-w-[...] ниже. Например: max-w-full, max-w-[1400px], max-w-[1200px]
-      */}
       <div className="mx-auto px-4 sm:px-6 lg:px-8 w-full max-w-[1200px]">
-        {/* Главный гибкий блок */}
         <div className="flex lg:flex-row flex-col justify-between items-start">
           
-          {/* Левая секция (Лого, контакты, соцсети) */}
+          {/* Левая секция */}
           <div className="flex flex-col items-center lg:items-start order-1 lg:order-none mr-0 lg:mr-[40px] xl:mr-[80px] py-10 lg:py-[65px] pr-0 lg:pr-[40px] xl:pr-[80px] border-white/35 border-r-0 lg:border-r w-full lg:w-auto lg:text-left text-center shrink-0">
             {/* Логотип */}
             <a href="/" className="block mb-[50px] lg:mb-[80px]">
-              <img src="../../src/assets/images/footer-logo.svg" alt="Dental Tooth" className="max-w-full h-auto" />
+              <img src={footerLogoSvg} alt="Dental Tooth" className="max-w-full h-auto" />
             </a>
 
             {/* Контактные данные */}
             <div className="space-y-[24px] mb-[70px] lg:mb-[75px] max-w-[220px]">
               <div className="flex items-center text-left">
                 <span className="inline-block mr-3 w-5 text-center shrink-0">
-                  <img src="../../src/assets/images/location.svg" alt="Локация" className="mx-auto align-middle" />
+                  <img src={locationSvg} alt="Локация" className="mx-auto align-middle" />
                 </span>
                 <span>{address}</span>
               </div>
 
               <div className="flex items-center text-left">
                 <span className="inline-block mr-3 w-5 text-center shrink-0">
-                  <img src="../../src/assets/images/phone.svg" alt="Телефон" className="mx-auto align-middle" />
+                  <img src={phoneSvg} alt="Телефон" className="mx-auto align-middle" />
                 </span>
                 <a href={`tel:${phone.replace(/\s+/g, '')}`} className="text-white hover:underline">
                   {phone}
@@ -107,7 +113,7 @@ export const Footer: React.FC<FooterProps> = ({
 
               <div className="flex items-center text-left">
                 <span className="inline-block mr-3 w-5 text-center shrink-0">
-                  <img src="../../src/assets/images/envelope.svg" alt="Email" className="mx-auto align-middle" />
+                  <img src={envelopeSvg} alt="Email" className="mx-auto align-middle" />
                 </span>
                 <a href={`mailto:${email}`} className="text-white hover:underline">
                   {email}
@@ -130,7 +136,7 @@ export const Footer: React.FC<FooterProps> = ({
             </div>
           </div>
 
-          {/* Правая секция (Колонки меню) */}
+          {/* Правая секция */}
           <div className="lg:before:hidden before:bottom-0 before:-left-[20px] before:absolute relative flex sm:flex-row flex-col sm:justify-between gap-x-[20px] gap-y-[30px] sm:gap-y-0 lg:gap-x-[30px] xl:gap-x-[60px] before:bg-white/35 py-[60px] lg:py-[65px] pb-10 lg:pb-[65px] w-full before:w-[calc(100%+40px)] before:h-[1px] before:content-['']">
             {/* Наши услуги */}
             <div className="sm:text-left text-center">
@@ -183,7 +189,6 @@ export const Footer: React.FC<FooterProps> = ({
                 ))}
               </ul>
             </div>
-
           </div>
 
         </div>

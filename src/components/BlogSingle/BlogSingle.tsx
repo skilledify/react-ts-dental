@@ -1,6 +1,8 @@
+
+
 // import React, { useState } from 'react';
 
-// // Интерфейсы для данных статьи и комментариев
+// // Интерфейсы
 // export interface CommentItem {
 //   id: string | number;
 //   authorName: string;
@@ -25,43 +27,30 @@
 //   onCommentSubmit?: (data: { author: string; email: string; comment: string }) => void;
 // }
 
-// // Заглушка данных комментариев
 // const DEFAULT_COMMENTS: CommentItem[] = [
 //   {
 //     id: 1,
 //     authorName: 'Лена До',
-//     avatarUrl: '../../src/assets/../../src/assets/images/comment-image.jpg',
-//     date: '08 сентября, 2022 1 минуту назад',
+//     avatarUrl: '/../../src/assets/images/comment-image.jpg',
+//     date: '08 сентября, 2026 1 минуту назад',
 //     content: 'Очень интересный пост. Узнала много нового.',
 //   },
 //   {
 //     id: 2,
 //     authorName: 'Лена До',
-//     avatarUrl: '../../src/assets/../../src/assets/images/comment-image.jpg',
-//     date: '08 сентября, 2022 1 минуту назад',
-//     content: 'Очень интересный пост. Узнала много нового.',
-//   },
-//   {
-//     id: 3,
-//     authorName: 'Лена До',
-//     avatarUrl: '../../src/assets/../../src/assets/images/comment-image.jpg',
-//     date: '08 сентября, 2022 1 минуту назад',
-//     content: 'Очень интересный пост. Узнала много нового.',
-//   },
-//   {
-//     id: 4,
-//     authorName: 'Лена До',
-//     avatarUrl: '../../src/assets/../../src/assets/images/comment-image.jpg',
-//     date: '08 сентября, 2022 1 минуту назад',
+//     avatarUrl: '/../../src/assets/images/comment-image.jpg',
+//     date: '08 сентября, 2026 1 минуту назад',
 //     content: 'Очень интересный пост. Узнала много нового.',
 //   },
 // ];
 
+// const MAX_COMMENT_LENGTH = 500;
+
 // const BlogSingle: React.FC<BlogSingleProps> = ({
 //   postTitle = 'Что стоматолог может сделать для ваших зубов?',
-//   date = '05 ноября 2022',
+//   date = '05 ноября 2026',
 //   commentsCount = 0,
-//   imageUrl = '../../src/assets/../../src/assets/images/single-1.jpg',
+//   imageUrl = '/../../src/assets/images/single-1.jpg',
 //   prevPost = {
 //     title: 'Все что Вы хотели узнать про сознательную седацию',
 //     link: '#',
@@ -73,26 +62,106 @@
 //   comments = DEFAULT_COMMENTS,
 //   onCommentSubmit,
 // }) => {
-//   // Состояние формы комментирования
+//   // Состояния формы
 //   const [formData, setFormData] = useState({
 //     author: '',
 //     email: '',
 //     comment: '',
 //   });
 
+//   const [errors, setErrors] = useState<{ [key: string]: string }>({});
+//   const [isSubmitting, setIsSubmitting] = useState(false);
+//   const [isSuccess, setIsSuccess] = useState(false);
+
+//   // Валидация отдельных полей
+//   const validateField = (name: string, value: string): string => {
+//     let error = '';
+
+//     if (name === 'author') {
+//       if (!value.trim()) {
+//         error = 'Пожалуйста, укажите ваше имя';
+//       } else if (value.trim().length < 2) {
+//         error = 'Имя должно содержать не менее 2 символов';
+//       }
+//     }
+
+//     if (name === 'email') {
+//       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+//       if (!value.trim()) {
+//         error = 'Пожалуйста, введите ваш Email';
+//       } else if (!emailRegex.test(value)) {
+//         error = 'Введите корректный Email адрес';
+//       }
+//     }
+
+//     if (name === 'comment') {
+//       if (!value.trim()) {
+//         error = 'Напишите текст комментария';
+//       } else if (value.trim().length < 5) {
+//         error = 'Комментарий слишком короткий (минимум 5 символов)';
+//       } else if (value.length > MAX_COMMENT_LENGTH) {
+//         error = `Превышен лимит в ${MAX_COMMENT_LENGTH} символов`;
+//       }
+//     }
+
+//     return error;
+//   };
+
 //   const handleInputChange = (
 //     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
 //   ) => {
 //     const { name, value } = e.target;
+
 //     setFormData((prev) => ({ ...prev, [name]: value }));
+
+//     // Валидация «на лету» при сбросе ошибок
+//     if (errors[name]) {
+//       const fieldError = validateField(name, value);
+//       setErrors((prev) => ({ ...prev, [name]: fieldError }));
+//     }
 //   };
 
-//   const handleSubmit = (e: React.FormEvent) => {
+//   const handleBlur = (
+//     e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
+//   ) => {
+//     const { name, value } = e.target;
+//     const fieldError = validateField(name, value);
+//     setErrors((prev) => ({ ...prev, [name]: fieldError }));
+//   };
+
+//   const handleSubmit = async (e: React.FormEvent) => {
 //     e.preventDefault();
-//     if (onCommentSubmit) {
-//       onCommentSubmit(formData);
+
+//     // Проверка всех полей перед отправкой
+//     const newErrors: { [key: string]: string } = {
+//       author: validateField('author', formData.author),
+//       email: validateField('email', formData.email),
+//       comment: validateField('comment', formData.comment),
+//     };
+
+//     // Фильтруем пустые ошибки
+//     const hasErrors = Object.values(newErrors).some((err) => err !== '');
+
+//     if (hasErrors) {
+//       setErrors(newErrors);
+//       return;
 //     }
-//     setFormData({ author: '', email: '', comment: '' });
+
+//     setIsSubmitting(true);
+//     setErrors({});
+
+//     // Имитация задержки сети / API запроса
+//     setTimeout(() => {
+//       if (onCommentSubmit) {
+//         onCommentSubmit(formData);
+//       }
+//       setIsSubmitting(false);
+//       setIsSuccess(true);
+//       setFormData({ author: '', email: '', comment: '' });
+
+//       // Скрыть плашку успеха через 4 секунды
+//       setTimeout(() => setIsSuccess(false), 4000);
+//     }, 800);
 //   };
 
 //   return (
@@ -129,47 +198,7 @@
 //             Для того, чтобы вы могли видеть, откуда все это рожденное
 //             заблуждение тех, кто обвиняет удовольствие и восхваляет страдание, я
 //             раскрою все дело и объясню то самое, что было сказано этим
-//             открывателем истины и как бы архитектором истины. счастливая жизнь.
-//             Ибо никто не презирает, не ненавидит и не бежит от удовольствия не
-//             потому, что оно есть удовольствие, а потому, что великие страдания
-//             причиняют тому, кто не умеет разумно следовать за удовольствием.
-//           </p>
-//           <p className="mb-5">
-//             Кроме того, нет никого, кто, потому что он любит боль, преследует ее,
-//             хочет ее получить, а потому, что никогда не бывает таких времен,
-//             когда он ищет большого удовольствия через труд и боль. Ибо, говоря в
-//             мельчайших подробностях, кто из нас предпринимает какие-либо физические
-//             упражнения, требующие труда, кроме как для того, чтобы извлечь из
-//             них какую-либо пользу? Но кто может справедливо критиковать того, кто
-//             хочет быть в удовольствии, которое не приносит дискомфорта, или того,
-//             кто избегает той боли, которая не приносит удовольствия?»
-//           </p>
-
-//           <h5 className="mb-[15px] font-bold text-[#535050] text-[20px]">
-//             Как быть?
-//           </h5>
-//           <p className="mb-5">
-//             Но на самом деле мы и обвиняем, и низвергаем тех, кто достоин
-//             справедливой ненависти, кто смягчился лестью сиюминутных удовольствий,
-//             кто какими скорбями и какими бедами испорчен.
-//           </p>
-
-//           <h5 className="mb-[15px] font-bold text-[#535050] text-[20px]">
-//             Что с этим делать?
-//           </h5>
-//           <p className="mb-5">
-//             Но на самом деле мы и обвиняем их, и справедливой ненавистью
-//             приводим тех, кто этого заслуживает, и обращаем их в бегство. Тех,
-//             кто размягчен и развращен лестью сиюминутных удовольствий, тех, кто
-//             исполнен печалей. Равным образом виновны и те, которые оставляют
-//             свои обязанности из-за слабости ума, то есть трудов и болей. Ибо в
-//             свободное время, когда мы свободны в выборе, ничто не мешает нам ни
-//             в малейшей степени. С другой стороны, мы осуждаем с праведным
-//             негодованием и неприязнью к людям, которые настолько обольщены и
-//             деморализованы прелестями сиюминутного удовольствия, настолько
-//             ослеплены желанием, что не могут предвидеть страданий и бед,
-//             которые неизбежно последуют за ними; и в равной степени виноваты
-//             те, кто не выполняет свой долг.
+//             открывателем истины и как бы архитектором истины.
 //           </p>
 //         </div>
 
@@ -247,8 +276,17 @@
 //             {/* Form */}
 //             <form
 //               onSubmit={handleSubmit}
-//               className="space-y-5 w-full max-w-[488px] shrink-0"
+//               noValidate
+//               className="space-y-4 w-full max-w-[488px] shrink-0"
 //             >
+//               {/* Уведомление об успешной отправке */}
+//               {isSuccess && (
+//                 <div className="bg-green-50 p-4 border border-green-200 rounded-lg font-medium text-green-700 text-sm animate-fade-in">
+//                   ✓ Спасибо! Ваш комментарий успешно отправлен.
+//                 </div>
+//               )}
+
+//               {/* Имя */}
 //               <div>
 //                 <input
 //                   id="author"
@@ -257,9 +295,19 @@
 //                   placeholder="Ваше имя"
 //                   value={formData.author}
 //                   onChange={handleInputChange}
-//                   className="px-[22px] py-[18px] border border-[#e4e4e4] focus:border-[#2378c9] rounded-[10px] outline-none w-full placeholder:text-[#b9b9b9] text-lg"
+//                   onBlur={handleBlur}
+//                   className={`w-full rounded-[10px] border px-[22px] py-[18px] text-lg outline-none transition-colors placeholder:text-[#b9b9b9] ${
+//                     errors.author
+//                       ? 'border-red-500 focus:border-red-500'
+//                       : 'border-[#e4e4e4] focus:border-[#2378c9]'
+//                   }`}
 //                 />
+//                 {errors.author && (
+//                   <p className="mt-1 text-red-500 text-xs">{errors.author}</p>
+//                 )}
 //               </div>
+
+//               {/* Email */}
 //               <div>
 //                 <input
 //                   id="email"
@@ -268,25 +316,56 @@
 //                   placeholder="Ваш email"
 //                   value={formData.email}
 //                   onChange={handleInputChange}
-//                   className="px-[22px] py-[18px] border border-[#e4e4e4] focus:border-[#2378c9] rounded-[10px] outline-none w-full placeholder:text-[#b9b9b9] text-lg"
+//                   onBlur={handleBlur}
+//                   className={`w-full rounded-[10px] border px-[22px] py-[18px] text-lg outline-none transition-colors placeholder:text-[#b9b9b9] ${
+//                     errors.email
+//                       ? 'border-red-500 focus:border-red-500'
+//                       : 'border-[#e4e4e4] focus:border-[#2378c9]'
+//                   }`}
 //                 />
+//                 {errors.email && (
+//                   <p className="mt-1 text-red-500 text-xs">{errors.email}</p>
+//                 )}
 //               </div>
+
+//               {/* Текст комментария */}
 //               <div>
-//                 <textarea
-//                   name="comment"
-//                   required
-//                   placeholder="Комментарий"
-//                   value={formData.comment}
-//                   onChange={handleInputChange}
-//                   className="px-[22px] py-[18px] border border-[#e4e4e4] focus:border-[#2378c9] rounded-[10px] outline-none w-full h-[256px] placeholder:text-[#b9b9b9] text-lg resize-none"
-//                 />
+//                 <div className="relative">
+//                   <textarea
+//                     name="comment"
+//                     placeholder="Комментарий"
+//                     value={formData.comment}
+//                     onChange={handleInputChange}
+//                     onBlur={handleBlur}
+//                     maxLength={MAX_COMMENT_LENGTH}
+//                     className={`h-[200px] w-full resize-none rounded-[10px] border px-[22px] py-[18px] text-lg outline-none transition-colors placeholder:text-[#b9b9b9] ${
+//                       errors.comment
+//                         ? 'border-red-500 focus:border-red-500'
+//                         : 'border-[#e4e4e4] focus:border-[#2378c9]'
+//                     }`}
+//                   />
+//                   {/* Счётчик символов */}
+//                   <span className="right-4 bottom-3 absolute text-gray-400 text-xs">
+//                     {formData.comment.length}/{MAX_COMMENT_LENGTH}
+//                   </span>
+//                 </div>
+//                 {errors.comment && (
+//                   <p className="mt-1 text-red-500 text-xs">{errors.comment}</p>
+//                 )}
 //               </div>
+
+//               {/* Кнопка отправки */}
 //               <div>
 //                 <button
 //                   type="submit"
-//                   className="bg-[#f86d6d] hover:bg-[#dd5959] py-[15px] rounded-[25px] w-[185px] text-white text-base text-center transition-colors duration-350 cursor-pointer"
+//                   disabled={isSubmitting}
+//                   className="flex justify-center items-center bg-[#f86d6d] hover:bg-[#dd5959] disabled:opacity-60 py-[15px] rounded-[25px] w-[185px] text-white text-base text-center transition-all cursor-pointer disabled:cursor-not-allowed"
 //                 >
-//                   Отправить
+//                   {isSubmitting ? (
+//                     <span className="inline-block border-2 border-white border-t-transparent rounded-full w-5 h-5 animate-spin" />
+//                   ) : (
+//                     'Отправить'
+//                   )}
 //                 </button>
 //               </div>
 //             </form>
@@ -296,7 +375,7 @@
 //               <strong className="font-bold text-[#302d2d]">
 //                 {comments.length}
 //               </strong>{' '}
-//               комментарий о посте “Стоматология липкий”
+//               комментарий о посте
 //             </div>
 //           </div>
 
@@ -306,7 +385,6 @@
 //               <li key={item.id} className="comment">
 //                 <article>
 //                   <footer className="flex items-start">
-//                     {/* Author Avatar */}
 //                     <div className="mr-[20px] rounded-full w-[120px] min-w-[120px] h-[120px] overflow-hidden shrink-0">
 //                       <img
 //                         src={item.avatarUrl}
@@ -314,8 +392,6 @@
 //                         className="w-full h-full object-cover"
 //                       />
 //                     </div>
-
-//                     {/* Metadata & Content */}
 //                     <div>
 //                       <div className="mb-2 font-bold text-lg">
 //                         <span>{item.authorName}</span>
@@ -350,6 +426,10 @@
 
 import React, { useState } from 'react';
 
+// 1. Импортируем изображения напрямую для корректной сборки Vite
+import defaultSingleImage from '../../assets/images/single-1.jpg';
+import defaultAvatarImage from '../../assets/images/comment-image.jpg';
+
 // Интерфейсы
 export interface CommentItem {
   id: string | number;
@@ -375,18 +455,19 @@ export interface BlogSingleProps {
   onCommentSubmit?: (data: { author: string; email: string; comment: string }) => void;
 }
 
+// 2. Используем импортированный аватар в значениях по умолчанию
 const DEFAULT_COMMENTS: CommentItem[] = [
   {
     id: 1,
     authorName: 'Лена До',
-    avatarUrl: '/../../src/assets/images/comment-image.jpg',
+    avatarUrl: defaultAvatarImage,
     date: '08 сентября, 2026 1 минуту назад',
     content: 'Очень интересный пост. Узнала много нового.',
   },
   {
     id: 2,
     authorName: 'Лена До',
-    avatarUrl: '/../../src/assets/images/comment-image.jpg',
+    avatarUrl: defaultAvatarImage,
     date: '08 сентября, 2026 1 минуту назад',
     content: 'Очень интересный пост. Узнала много нового.',
   },
@@ -398,7 +479,8 @@ const BlogSingle: React.FC<BlogSingleProps> = ({
   postTitle = 'Что стоматолог может сделать для ваших зубов?',
   date = '05 ноября 2026',
   commentsCount = 0,
-  imageUrl = '/../../src/assets/images/single-1.jpg',
+  // 3. Используем импортированное изображение по умолчанию
+  imageUrl = defaultSingleImage,
   prevPost = {
     title: 'Все что Вы хотели узнать про сознательную седацию',
     link: '#',

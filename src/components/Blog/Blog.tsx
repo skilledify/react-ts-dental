@@ -1,8 +1,14 @@
-
 import React from 'react';
 import { Link } from 'react-router';
 
-// Интерфейс для данных статьи
+// 1. Импортируем все изображения
+import news1 from '../../assets/images/news-1.jpg';
+import news2 from '../../assets/images/news-2.jpg';
+import news3 from '../../assets/images/news-3.jpg';
+import news4 from '../../assets/images/news-4.jpg';
+import news5 from '../../assets/images/news-5.jpg';
+import news6 from '../../assets/images/news-6.jpg';
+
 export interface BlogPost {
   id: string | number;
   title: string;
@@ -12,7 +18,7 @@ export interface BlogPost {
   imageUrl: string;
 }
 
-// Заглушка данных с корректными путями к изображениям
+// 2. Используем импортированные переменные
 const BLOG_POSTS: BlogPost[] = [
   {
     id: 1,
@@ -21,7 +27,7 @@ const BLOG_POSTS: BlogPost[] = [
       'Если они были измотаны, то и боль, и таблетку, и саму подушку, и саму боль надо беречь, в следующий раз ...',
     date: '05 ноября 2022',
     commentsCount: 0,
-    imageUrl: '../../src/assets/images/news-1.jpg',
+    imageUrl: news1,
   },
   {
     id: 2,
@@ -30,7 +36,7 @@ const BLOG_POSTS: BlogPost[] = [
       'Безусловно, существующая теория позволяет выполнить важные задания по разработке благоприятных перспектив...',
     date: '05 ноября 2022',
     commentsCount: 0,
-    imageUrl: '../../src/assets/images/news-2.jpg',
+    imageUrl: news2,
   },
   {
     id: 3,
@@ -39,7 +45,7 @@ const BLOG_POSTS: BlogPost[] = [
       'Учитывая ключевые сценарии поведения, выбранный нами инновационный путь напрямую зависит от поставленных...',
     date: '05 ноября 2022',
     commentsCount: 0,
-    imageUrl: '../../src/assets/images/news-3.jpg',
+    imageUrl: news3,
   },
   {
     id: 4,
@@ -48,7 +54,7 @@ const BLOG_POSTS: BlogPost[] = [
       'Но новая модель организационной деятельности прекрасно подходит для реализации распределения...',
     date: '05 ноября 2022',
     commentsCount: 0,
-    imageUrl: '../../src/assets/images/news-4.jpg',
+    imageUrl: news4,
   },
   {
     id: 5,
@@ -57,7 +63,7 @@ const BLOG_POSTS: BlogPost[] = [
       'Неопровержимые выводы, а также акционеры крупнейших компаний являются только методом...',
     date: '05 ноября 2022',
     commentsCount: 0,
-    imageUrl: '../../src/assets/images/news-5.jpg',
+    imageUrl: news5,
   },
   {
     id: 6,
@@ -66,10 +72,9 @@ const BLOG_POSTS: BlogPost[] = [
       'Тщательные исследования конкурентов функционально разнесены на независимые элементы...',
     date: '05 ноября 2022',
     commentsCount: 0,
-    imageUrl: '../../src/assets/images/news-6.jpg',
+    imageUrl: news6,
   },
 ];
-
 interface BlogProps {
   posts?: BlogPost[];
   title?: string;
