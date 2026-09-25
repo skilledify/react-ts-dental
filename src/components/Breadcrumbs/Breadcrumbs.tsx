@@ -121,7 +121,7 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({
                     {item.label}
                   </Link>
                 ) : (
-                  <span className="inline-flex items-center font-normal text-[#302d2d]" aria-current="page">
+                  <span className="inline-flex items-center font-bold text-[#302d2d]" aria-current="page">
                     {item.label}
                   </span>
                 )}
