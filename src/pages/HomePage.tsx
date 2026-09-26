@@ -7,9 +7,9 @@ import About from "../components/About/About"
 import Features from "../components/Features/Features"
 import Specialists from "../components/Specialists/Specialists"
 import Price from "../components/Price/Price"
-import News from "../components/News/News"
 import FormSection  from "../components/FormSection/FormSection"
 import Reviews from "../components/Reviews/Reviews"
+import BlogSection from "../components/BlogSection/BlogSection"
 
 const HomePage: FC = () => {
   const { hash } = useLocation();
@@ -66,7 +66,7 @@ const HomePage: FC = () => {
 
       {/* 5. Блог / Новости */}
       <section id="blog">
-        <News />
+        <BlogSection isHomePage={true}/>
       </section>
 
       {/* 6. Контакты / Форма связи */}

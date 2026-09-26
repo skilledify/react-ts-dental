@@ -1,7 +1,7 @@
 import type { FC } from "react";
-import { Route, Routes } from 'react-router';
+import { BrowserRouter, Route, Routes } from 'react-router';
 import { AppRoutes } from "./constants/global.constants";
-import { BrowserRouter } from 'react-router';
+
 import {MainLayout} from "./components/Layouts/MainLayout";
 
 import HomePage from "./pages/HomePage";
@@ -17,20 +17,20 @@ import ScrollToTop from "./components/ScrollToTop";
 const App: FC = () => {
   return (
     <>
-        <BrowserRouter basename="/react-ts-dental">
+      <BrowserRouter basename="/react-ts-dental">
         <ScrollToTop/>
-            <Routes>
+          <Routes>
         {/* Родительский роут с MainLayout */}
-        <Route element={<MainLayout />}>
-          <Route index element={<HomePage />} />
-          <Route path={AppRoutes.BLOGPAGE} element={<BlogPage />} />
-          <Route path={AppRoutes.BLOGSINGLEPAGE} element={<BlogSinglePage />} />
-          <Route path={AppRoutes.DENTISTPAGE} element={<DentistPage />} />
-          <Route path={AppRoutes.CONTACTSPAGE} element={<ContactsPage />} />
-        </Route>
+            <Route element={<MainLayout />}>
+              <Route index element={<HomePage />} />
+              <Route path={AppRoutes.BLOGPAGE} element={<BlogPage />} />
+              <Route path={AppRoutes.BLOGSINGLEPAGE} element={<BlogSinglePage />} />
+              <Route path={AppRoutes.DENTISTPAGE} element={<DentistPage />} />
+              <Route path={AppRoutes.CONTACTSPAGE} element={<ContactsPage />} />
+          </Route>
 
         {/* Страница 404 без Header и Footer */}
-        <Route path={AppRoutes.NOT_FOUNDPAGE} element={<NotFoundPage />} />
+          <Route path={AppRoutes.NOT_FOUNDPAGE} element={<NotFoundPage />} />
       </Routes>
         
         

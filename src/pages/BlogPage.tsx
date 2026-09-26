@@ -1,5 +1,5 @@
 import type { FC } from "react"
-import Blog from "../components/Blog/Blog"
+import Blog from "../components/BlogSection/BlogSection"
 
 
 const BlogPage: FC = () => {

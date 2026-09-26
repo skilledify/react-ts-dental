@@ -1,5 +1,5 @@
 import type { FC } from "react"
-import ContactsSection from "../components/Contacts/Contacts"
+import ContactsSection from "../components/Appointment/Appointment"
 
 
 const ContactsPage: FC = () => {
