@@ -2,28 +2,28 @@ import type { ReactNode, FC } from "react";
 import { Link, useLocation } from "react-router";
 
 export interface BreadcrumbItem {
-  /** Текст ссылки или элемента */
+
   label: ReactNode;
-  /** URL адрес ссылки. Если не передан или элемент последний — отображается текстом */
+
   path?: string;
 }
 
 export interface BreadcrumbsProps {
-  /** Кастомный массив элементов. Если не передан, компонент сгенерирует крошки автоматически по текущему URL */
+
   items?: BreadcrumbItem[];
-  /** Кастомное отображение главной страницы (текст или иконка + текст) */
+
   homeLabel?: ReactNode;
-  /** Кастомный разделитель между крошками (по умолчанию '/') */
+
   separator?: ReactNode;
-  /** Словарь для замены динамических сегментов (например, { [AppRoutes.BLOGPAGE]: "Блог" }) */
+
   routeNames?: Record<string, string>;
-  /** Дополнительные CSS классы для контейнера section */
+
   className?: string;
-  /** Дополнительные CSS классы для обертки container */
+
   containerClassName?: string;
 }
 
-/** Встроенная SVG-иконка домика из вашего верстки */
+
 const HomeIcon: FC = () => (
   <svg
     className="fill-[#302D2D] group-hover:fill-[#2378c9] mr-2.5 w-5 h-5 transition-colors shrink-0"
@@ -39,7 +39,7 @@ const HomeIcon: FC = () => (
   </svg>
 );
 
-/** Встроенный маппинг страниц по умолчанию из AppRoutes */
+
 const DEFAULT_ROUTE_NAMES: Record<string, string> = {
   "/": "Главная",
   "/blog": "Блог",
@@ -47,7 +47,7 @@ const DEFAULT_ROUTE_NAMES: Record<string, string> = {
   "/dentist": "Врачи",
 };
 
-const Breadcrumbs: FC<BreadcrumbsProps> = ({
+const Breadcrumbs: FC<BreadcrumbsProps> = ( {
   items,
   homeLabel,
   separator = "/",
@@ -57,10 +57,10 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({
 }) => {
   const location = useLocation();
 
-  // Если проп items не передан — динамически генерируем цепочку
+
   const breadcrumbsList: BreadcrumbItem[] = items || (() => {
     const pathnames = location.pathname.split("/").filter(Boolean);
-    
+
     const defaultHomeContent = (
       <>
         <HomeIcon />
@@ -69,7 +69,7 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({
     );
 
     const generated: BreadcrumbItem[] = [
-      {
+ {
         label: homeLabel ?? defaultHomeContent,
         path: "/",
       },
@@ -80,14 +80,14 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({
       currentPath += `/${segment}`;
       const isLast = index === pathnames.length - 1;
 
-      // Получаем заголовок роута или делаем Capitalize для названия сегмента
+
       const rawLabel = routeNames[currentPath] || segment.replace(/-/g, " ");
       const formattedLabel =
         typeof rawLabel === "string"
           ? rawLabel.charAt(0).toUpperCase() + rawLabel.slice(1)
           : rawLabel;
 
-      generated.push({
+      generated.push( {
         label: formattedLabel,
         path: isLast ? undefined : currentPath,
       });
@@ -96,7 +96,7 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({
     return generated;
   })();
 
-  // Не рендерим крошки на главной странице, если нет дочерних элементов
+
   if (breadcrumbsList.length <= 1 && location.pathname === "/") {
     return null;
   }

@@ -9,9 +9,8 @@ import BlogPage from "./pages/BlogPage";
 import ContactsPage from "./pages/ContactsPage";
 import BlogSinglePage from "./pages/BlogSinglePage";
 import DentistPage from "./pages/DentistPage";
-import NotFoundPage from "./pages/NotFoundPage"; 
+import NotFoundPage from "./pages/NotFoundPage";
 import ScrollToTop from "./components/ScrollToTop";
-
 
 
 const App: FC = () => {
@@ -20,7 +19,7 @@ const App: FC = () => {
       <BrowserRouter basename="/react-ts-dental">
         <ScrollToTop/>
           <Routes>
-        {/* Родительский роут с MainLayout */}
+        {}
             <Route element={<MainLayout />}>
               <Route index element={<HomePage />} />
               <Route path={AppRoutes.BLOGPAGE} element={<BlogPage />} />
@@ -29,11 +28,11 @@ const App: FC = () => {
               <Route path={AppRoutes.CONTACTSPAGE} element={<ContactsPage />} />
           </Route>
 
-        {/* Страница 404 без Header и Footer */}
+        {}
           <Route path={AppRoutes.NOT_FOUNDPAGE} element={<NotFoundPage />} />
       </Routes>
-        
-        
+
+
         </BrowserRouter>
 
    </>

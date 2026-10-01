@@ -16,4 +16,3 @@ import Breadcrumbs from '../Breadcrumbs/Breadcrumbs';
     </div>
   );
 };
-

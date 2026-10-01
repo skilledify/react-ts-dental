@@ -4,9 +4,9 @@ import ContactsSection from "../components/Appointment/Appointment"
 
 const ContactsPage: FC = () => {
   return (
-    <>  
+    <>
     <ContactsSection />
-    
+
     </>
   )
 }

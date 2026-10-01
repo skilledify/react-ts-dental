@@ -4,7 +4,7 @@ import Blog from "../components/BlogSection/BlogSection"
 
 const BlogPage: FC = () => {
   return (
-    <div> 
+    <div>
       <Blog/>
     </div>
   )

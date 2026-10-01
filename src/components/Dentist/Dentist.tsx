@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-// Импорты иконок и дефолтных изображений (укажите ваши пути)
+
 import defaultDoctorPhoto from '../../assets/images/specialists-1.jpg';
 import spec2 from '../../assets/images/specialists-2.jpg';
 import spec3 from '../../assets/images/specialists-3.jpg';
@@ -31,7 +31,7 @@ export interface Socials {
   vk?: string;
 }
 
-// 1. Обновляем интерфейс: добавляем опциональный id
+
 export interface DentistProps {
   id?: string | number;
   name?: string;
@@ -45,7 +45,7 @@ export interface DentistProps {
   socials?: Socials;
 }
 
-// 2. База данных специалистов для динамического вывода по ID
+
 const DENTISTS_DATA: Record<string | number, Partial<DentistProps>> = {
   '1': {
     name: 'Борис Каменский',
@@ -115,7 +115,7 @@ const DENTISTS_DATA: Record<string | number, Partial<DentistProps>> = {
 };
 
 const Dentist: React.FC<DentistProps> = (props) => {
-  // Выбираем данные конкретного врача по переданному id (или дефолтный врачебный профиль, если id не найден)
+
   const currentData = props.id ? DENTISTS_DATA[props.id] || {} : {};
 
   const {
@@ -133,9 +133,9 @@ const Dentist: React.FC<DentistProps> = (props) => {
   return (
     <section className="py-[60px] font-sans text-[#302d2d]">
       <div className="mx-auto px-5 max-w-[1200px]">
-        {/* Верхняя часть: Фото и Информация о враче */}
+        {}
         <div className="flex md:flex-row flex-col items-center md:items-start gap-8 md:gap-0 mb-[70px]">
-          {/* Фото врача */}
+          {}
           <div className="shadow-[-1px_1px_11px_3px_rgba(46,44,44,0.21)] md:mr-[64px] rounded-[20px] w-full md:w-auto md:min-w-[400px] overflow-hidden shrink-0">
             <img
               src={photoUrl}
@@ -144,13 +144,13 @@ const Dentist: React.FC<DentistProps> = (props) => {
             />
           </div>
 
-          {/* Инфо о враче */}
+          {}
           <div className="flex-1">
             <h1 className="mb-8 font-normal text-[#302d2d] text-[36px] sm:text-[42px] md:text-[52px] leading-tight">
               {name}
             </h1>
 
-            {/* Образование */}
+            {}
             {education.length > 0 && (
               <div className="mb-[32px] text-[#56565e]">
                 <h3 className="mb-4 font-bold text-[#302d2d] text-[22px]">
@@ -167,7 +167,7 @@ const Dentist: React.FC<DentistProps> = (props) => {
               </div>
             )}
 
-            {/* Опыт */}
+            {}
             {experience.length > 0 && (
               <div className="mb-[32px] text-[#56565e]">
                 <h3 className="mb-4 font-bold text-[#302d2d] text-[22px]">Опыт</h3>
@@ -182,7 +182,7 @@ const Dentist: React.FC<DentistProps> = (props) => {
               </div>
             )}
 
-            {/* График работы */}
+            {}
             {schedule.length > 0 && (
               <div className="text-[#56565e]">
                 <h3 className="mb-4 font-bold text-[#302d2d] text-[22px]">График работы:</h3>
@@ -198,9 +198,9 @@ const Dentist: React.FC<DentistProps> = (props) => {
           </div>
         </div>
 
-        {/* Контакты врача */}
+        {}
         <div className="gap-5 grid grid-cols-1 md:grid-cols-3">
-          {/* Телефон */}
+          {}
           <div className="flex flex-col justify-center items-center bg-[#54a0cf] px-[30px] lg:px-[50px] py-10 md:py-[78px] rounded-[20px] text-white text-center">
             <div className="mb-5">
               <img src={phoneIcon} alt="Телефон" className="w-[35px] h-auto" />
@@ -213,7 +213,7 @@ const Dentist: React.FC<DentistProps> = (props) => {
             </div>
           </div>
 
-          {/* Email */}
+          {}
           <div className="@container flex flex-col justify-center items-center bg-[#29a9f9] px-4 sm:px-[30px] lg:px-[50px] py-10 md:py-[78px] rounded-[20px] text-white text-center">
             <div className="mb-5">
               <img src={envelopeIcon} alt="Email" className="w-[35px] h-auto" />
@@ -229,7 +229,7 @@ const Dentist: React.FC<DentistProps> = (props) => {
             </div>
           </div>
 
-          {/* Социальные сети */}
+          {}
           <div className="flex flex-col justify-center items-center bg-[#328dc6] px-[30px] lg:px-[50px] py-10 md:py-[78px] rounded-[20px] text-white text-center">
             <div className="mb-5">
               <img src={molekulaIcon} alt="Мы в социальных сетях" className="w-[35px] h-auto" />

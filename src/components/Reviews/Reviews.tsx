@@ -3,12 +3,12 @@ import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, A11y } from 'swiper/modules';
 
-// Импорт стилей Swiper
+
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-// Типы для социальных сетей
+
 export type SocialType = 'twitter' | 'x' | 'vk' | 'telegram' | 'whatsapp';
 
 export interface SocialLink {
@@ -33,7 +33,7 @@ export interface ReviewsProps {
   className?: string;
 }
 
-// Вспомогательный рендер иконок соцсетей
+
 const SocialIcon = ({ type, customIcon }: { type?: SocialType; customIcon?: React.ReactNode }) => {
   if (customIcon) return <>{customIcon}</>;
 
@@ -65,7 +65,7 @@ const SocialIcon = ({ type, customIcon }: { type?: SocialType; customIcon?: Reac
 };
 
 const DEFAULT_REVIEWS: ReviewItem[] = [
-  {
+ {
     id: 1,
     name: 'Елена Васильева',
     avatarUrl: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=300&q=80',
@@ -76,7 +76,7 @@ const DEFAULT_REVIEWS: ReviewItem[] = [
       { href: '#', type: 'twitter', ariaLabel: 'Twitter' },
     ],
   },
-  {
+ {
     id: 2,
     name: 'Владимир Цой',
     avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80',
@@ -87,7 +87,7 @@ const DEFAULT_REVIEWS: ReviewItem[] = [
       { href: '#', type: 'telegram', ariaLabel: 'Telegram' },
     ],
   },
-  {
+ {
     id: 3,
     name: 'Алина Матвеева',
     avatarUrl: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=300&q=80',
@@ -98,7 +98,7 @@ const DEFAULT_REVIEWS: ReviewItem[] = [
       { href: '#', type: 'twitter', ariaLabel: 'Twitter' },
     ],
   },
-  {
+ {
     id: 4,
     name: 'Виктор Ким',
     avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80',
@@ -111,7 +111,7 @@ const DEFAULT_REVIEWS: ReviewItem[] = [
   },
 ];
 
-export default function Reviews({
+export default function Reviews( {
   title = (
     <>
       Что говорят <span className="font-bold text-[#2378c9]">наши клиенты</span>
@@ -123,34 +123,34 @@ export default function Reviews({
   return (
     <section id="reviews"
       className={`relative py-8 sm:py-12 md:py-[90px] px-3 sm:px-4 md:px-[30px] overflow-hidden bg-cover bg-center ${className}`}
-      style={{
+      style={ {
         backgroundImage: 'url("https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1600&q=80")',
       }}
     >
-      {/* Затемнение фона */}
+      {}
       <div className="z-0 absolute inset-0 bg-[#323030]/40" />
 
       <div className="z-10 relative mx-auto max-w-[1200px]">
-        {/* Карточка-обертка */}
+        {}
         <div className="bg-white/90 shadow-lg px-3 sm:px-6 pt-6 sm:pt-[40px] md:pt-[55px] pb-8 sm:pb-[50px] md:pb-[70px] rounded-[20px] overflow-hidden">
-          
-          {/* Заголовок */}
+
+          {}
           <h2 className="mb-6 sm:mb-8 md:mb-[60px] font-normal text-[#302d2d] text-[24px] sm:text-[36px] md:text-[46px] text-center leading-[1.2]">
             {title}
           </h2>
 
-          {/* Контейнер слайдера */}
+          {}
           <div className="relative mx-auto px-0 md:px-16 max-w-[920px]">
             <Swiper
               modules={[Navigation, Pagination, A11y]}
               spaceBetween={30}
               slidesPerView={1}
               loop={true}
-              navigation={{
+              navigation={ {
                 nextEl: '.reviews-swiper-next',
                 prevEl: '.reviews-swiper-prev',
               }}
-              pagination={{
+              pagination={ {
                 clickable: true,
                 el: '.reviews-swiper-pagination',
               }}
@@ -159,8 +159,8 @@ export default function Reviews({
               {reviews.map((review) => (
                 <SwiperSlide key={review.id} className="h-auto">
                   <div className="relative flex md:flex-row flex-col items-center md:items-start mx-auto pt-2 sm:pt-4 md:pt-6 pb-2 max-w-[780px]">
-                    
-                    {/* Декоративные кавычки на фоновом слое (z-0) */}
+
+                    {}
                     <div className="hidden md:block -top-4 left-[180px] lg:left-[195px] z-0 absolute opacity-25 md:opacity-30 pointer-events-none select-none">
                       <svg
                         width="96"
@@ -177,7 +177,7 @@ export default function Reviews({
                       </svg>
                     </div>
 
-                    {/* Аватар */}
+                    {}
                     <div className="z-10 relative bg-white shadow-md md:mr-[42px] mb-4 sm:mb-6 md:mb-0 border-4 border-white rounded-full w-[120px] sm:w-[180px] md:w-[240px] h-[120px] sm:h-[180px] md:h-[240px] overflow-hidden shrink-0">
                       <img
                         src={review.avatarUrl}
@@ -186,13 +186,13 @@ export default function Reviews({
                       />
                     </div>
 
-                    {/* Текстовый контент */}
+                    {}
                     <div className="z-10 relative flex-1 w-full min-w-0 md:text-left text-center">
                       <p className="mb-4 sm:mb-[25px] md:mb-[35px] text-[#6b6868] md:text-[18px] text-xs sm:text-base break-words leading-[1.5] sm:leading-[1.6]">
                         {review.text}
                       </p>
 
-                      {/* Блок под отзывом: имя и иконки соцсетей */}
+                      {}
                       <div className="flex md:flex-row flex-col justify-between items-center gap-3 sm:gap-4 w-full">
                         <span className="w-full md:w-auto font-bold text-[#2378c9] text-[18px] sm:text-[24px] md:text-[30px] md:text-left text-center break-words leading-tight">
                           {review.name}
@@ -219,7 +219,7 @@ export default function Reviews({
               ))}
             </Swiper>
 
-            {/* Кнопки навигации (скрыты на экранах меньше md) */}
+            {}
             <button
               type="button"
               aria-label="Previous slide"
@@ -240,7 +240,7 @@ export default function Reviews({
               </svg>
             </button>
 
-            {/* Точки пагинации для мобильных */}
+            {}
             <div className="md:hidden flex justify-center gap-1.5 sm:gap-2 mt-4 sm:mt-6 reviews-swiper-pagination" />
           </div>
         </div>

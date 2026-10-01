@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 
-// Импорт иконок карточек и соцсетей из assets
+
 import locationIcon from '../../assets/images/location.svg';
 import phoneIcon from '../../assets/images/phone.svg';
 import envelopeIcon from '../../assets/images/envelope.svg';
@@ -11,8 +11,7 @@ import twitterIcon from '../../assets/images/twitter.svg';
 import instagramIcon from '../../assets/images/instagram.svg';
 import vkIcon from '../../assets/images/vk.svg';
 
-// Импорт иллюстрации "Записаться на прием"
-// Добавьте соответствующий файл ( appointment.png / appointment.svg / appointment.jpg ) в папку src/assets/images/
+
 import appointmentImg from '../../assets/images/appointment.svg';
 
 interface FormData {
@@ -38,14 +37,14 @@ interface ContactCard {
 }
 
 const APPOINTMENT_DATA: ContactCard[] = [
-  {
+ {
     id: 'office',
     bgColor: 'bg-[#5eb8f0]',
     icon: locationIcon,
     title: 'Наш офис',
     content: 'г.Москва, ул. Прокофьева 18',
   },
-  {
+ {
     id: 'phone',
     bgColor: 'bg-[#54a0cf]',
     icon: phoneIcon,
@@ -56,7 +55,7 @@ const APPOINTMENT_DATA: ContactCard[] = [
       </a>
     ),
   },
-  {
+ {
     id: 'email',
     bgColor: 'bg-[#29a9f9]',
     icon: envelopeIcon,
@@ -67,7 +66,7 @@ const APPOINTMENT_DATA: ContactCard[] = [
       </a>
     ),
   },
-  {
+ {
     id: 'socials',
     bgColor: 'bg-[#328dc6]',
     icon: molekulaIcon,
@@ -103,7 +102,7 @@ const APPOINTMENT_DATA: ContactCard[] = [
 const formatPhoneNumber = (value: string): string => {
   const digits = value.replace(/\D/g, '');
   if (!digits) return '';
-  
+
   let formatted = '+7';
   const numberDigits = digits.startsWith('7') || digits.startsWith('8') ? digits.slice(1) : digits;
 
@@ -124,7 +123,7 @@ const formatPhoneNumber = (value: string): string => {
 };
 
 const Appointment: React.FC = () => {
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState<FormData>( {
     name: '',
     phone: '',
     email: '',
@@ -132,7 +131,7 @@ const Appointment: React.FC = () => {
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
-  const [touched, setTouched] = useState<Record<keyof FormData, boolean>>({
+  const [touched, setTouched] = useState<Record<keyof FormData, boolean>>( {
     name: false,
     phone: false,
     email: false,
@@ -214,7 +213,7 @@ const Appointment: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    setTouched({
+    setTouched( {
       name: true,
       phone: true,
       email: true,
@@ -244,14 +243,14 @@ const Appointment: React.FC = () => {
     <div id="appointment" className="scroll-mt-[100px]">
       <section className="py-[60px] text-[#302d2d]">
         <div className="mx-auto px-[20px] max-w-[1200px]">
-          {/* Title */}
+          {}
           <div className="mx-auto mb-[45px] max-w-[470px] text-center">
             <h2 className="mb-[20px] font-normal text-[36px] sm:text-[46px] leading-tight sm:leading-[55px]">
               Контакты
             </h2>
           </div>
 
-          {/* appointment Grid */}
+          {}
           <div className="gap-[20px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
             {APPOINTMENT_DATA.map((card) => (
               <div
@@ -267,14 +266,14 @@ const Appointment: React.FC = () => {
             ))}
           </div>
 
-          {/* Contact Form & Appointment Section */}
+          {}
           <div className="mx-auto mt-[60px] max-w-[1100px]">
             <h3 className="mb-[40px] font-normal text-[32px] sm:text-[42px] text-center">
               Записаться на прием
             </h3>
 
             <div className="items-center gap-[40px] grid grid-cols-1 lg:grid-cols-2">
-              {/* Левая колонка: Иллюстрация записи на прием */}
+              {}
               <div className="hidden lg:flex justify-center items-center p-4">
                 <img
                   src={appointmentImg}
@@ -283,7 +282,7 @@ const Appointment: React.FC = () => {
                 />
               </div>
 
-              {/* Правая колонка: Форма связи */}
+              {}
               <div className="mx-auto w-full max-w-[560px] lg:max-w-none">
                 {isSuccess && (
                   <div
@@ -295,7 +294,7 @@ const Appointment: React.FC = () => {
                 )}
 
                 <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-[20px]">
-                  {/* Name Input */}
+                  {}
                   <div>
                     <label htmlFor="appointment-name" className="sr-only">
                       Ваше имя
@@ -310,7 +309,7 @@ const Appointment: React.FC = () => {
                       placeholder="Ваше имя *"
                       aria-invalid={!!errors.name}
                       aria-describedby={errors.name ? 'name-error' : undefined}
-                      className={`w-full border rounded-[10px] p-[18px_22px] text-[18px] outline-none placeholder-[#b9b9b9] transition-colors ${
+                      className={`w-full border rounded-[10px] p-[18px_22px] text-[18px] outline-none placeholder-[#b9b9b9] transition-colors $ {
                         errors.name
                           ? 'border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500'
                           : 'border-[#e4e4e4] focus:border-[#5eb8f0] focus:ring-1 focus:ring-[#5eb8f0]'
@@ -323,7 +322,7 @@ const Appointment: React.FC = () => {
                     )}
                   </div>
 
-                  {/* Phone Input */}
+                  {}
                   <div>
                     <label htmlFor="appointment-phone" className="sr-only">
                       Ваш телефон
@@ -338,7 +337,7 @@ const Appointment: React.FC = () => {
                       placeholder="Ваш телефон *"
                       aria-invalid={!!errors.phone}
                       aria-describedby={errors.phone ? 'phone-error' : undefined}
-                      className={`w-full border rounded-[10px] p-[18px_22px] text-[18px] outline-none placeholder-[#b9b9b9] transition-colors ${
+                      className={`w-full border rounded-[10px] p-[18px_22px] text-[18px] outline-none placeholder-[#b9b9b9] transition-colors $ {
                         errors.phone
                           ? 'border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500'
                           : 'border-[#e4e4e4] focus:border-[#5eb8f0] focus:ring-1 focus:ring-[#5eb8f0]'
@@ -351,7 +350,7 @@ const Appointment: React.FC = () => {
                     )}
                   </div>
 
-                  {/* Email Input */}
+                  {}
                   <div>
                     <label htmlFor="appointment-email" className="sr-only">
                       Ваш email
@@ -366,7 +365,7 @@ const Appointment: React.FC = () => {
                       placeholder="Ваш email *"
                       aria-invalid={!!errors.email}
                       aria-describedby={errors.email ? 'email-error' : undefined}
-                      className={`w-full border rounded-[10px] p-[18px_22px] text-[18px] outline-none placeholder-[#b9b9b9] transition-colors ${
+                      className={`w-full border rounded-[10px] p-[18px_22px] text-[18px] outline-none placeholder-[#b9b9b9] transition-colors $ {
                         errors.email
                           ? 'border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500'
                           : 'border-[#e4e4e4] focus:border-[#5eb8f0] focus:ring-1 focus:ring-[#5eb8f0]'
@@ -379,7 +378,7 @@ const Appointment: React.FC = () => {
                     )}
                   </div>
 
-                  {/* Comment Textarea */}
+                  {}
                   <div>
                     <label htmlFor="appointment-comment" className="sr-only">
                       Комментарий
@@ -394,7 +393,7 @@ const Appointment: React.FC = () => {
                       rows={5}
                       aria-invalid={!!errors.comment}
                       aria-describedby={errors.comment ? 'comment-error' : undefined}
-                      className={`w-full border rounded-[10px] p-[18px_22px] text-[18px] outline-none placeholder-[#b9b9b9] h-[180px] sm:h-[220px] resize-y transition-colors ${
+                      className={`w-full border rounded-[10px] p-[18px_22px] text-[18px] outline-none placeholder-[#b9b9b9] h-[180px] sm:h-[220px] resize-y transition-colors $ {
                         errors.comment
                           ? 'border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500'
                           : 'border-[#e4e4e4] focus:border-[#5eb8f0] focus:ring-1 focus:ring-[#5eb8f0]'
@@ -407,7 +406,7 @@ const Appointment: React.FC = () => {
                     )}
                   </div>
 
-                  {/* Submit Button */}
+                  {}
                   <div>
                     <button
                       type="submit"

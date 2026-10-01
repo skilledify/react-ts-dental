@@ -23,30 +23,30 @@ interface SpecialistsProps {
   specialists?: Specialist[];
 }
 
-// 💡 Используем AppRoutes для генерации путей
+
 const DEFAULT_SPECIALISTS: Specialist[] = [
-  {
+ {
     id: 1,
     name: 'Борис Каменский',
     profession: 'Стоматолог',
     image: spec1,
     link: AppRoutes.DENTISTPAGE.replace(':id', '1'),
   },
-  {
+ {
     id: 2,
     name: 'Михаил Гуревич',
     profession: 'Стоматолог',
     image: spec2,
     link: AppRoutes.DENTISTPAGE.replace(':id', '2'),
   },
-  {
+ {
     id: 3,
     name: 'София Блок',
     profession: 'Стоматолог',
     image: spec3,
     link: AppRoutes.DENTISTPAGE.replace(':id', '3'),
   },
-  {
+ {
     id: 4,
     name: 'Елена Николаева',
     profession: 'Стоматолог',
@@ -55,7 +55,7 @@ const DEFAULT_SPECIALISTS: Specialist[] = [
   },
 ];
 
-export const Specialists: React.FC<SpecialistsProps> = ({
+export const Specialists: React.FC<SpecialistsProps> = ( {
   title = 'Наши специалисты',
   description = 'Мы построили нашу стоматологию на прочных опорах 22 хирургов MDS. В нашей команде работают опытные специалисты с многолетним опытом работы.',
   specialists = DEFAULT_SPECIALISTS,
@@ -66,8 +66,8 @@ export const Specialists: React.FC<SpecialistsProps> = ({
     e.preventDefault();
     e.stopPropagation();
 
-    const targetPath = item.link && item.link !== '#' 
-      ? item.link 
+    const targetPath = item.link && item.link !== '#'
+      ? item.link
       : AppRoutes.DENTISTPAGE.replace(':id', String(item.id));
 
     navigate(targetPath);
@@ -76,7 +76,7 @@ export const Specialists: React.FC<SpecialistsProps> = ({
   return (
     <section id="specialists" className="py-[50px] lg:py-[90px] text-center s-specialists">
       <div className="mx-auto px-4 container">
-        {/* Title Block */}
+        {}
         <div className="mb-8 lg:mb-10 def-title-wrapper">
           <h2 className="mb-3 font-bold text-[30px] lg:text-[40px] leading-[38px] lg:leading-[48px] def-title">
             {title}
@@ -88,7 +88,7 @@ export const Specialists: React.FC<SpecialistsProps> = ({
           )}
         </div>
 
-        {/* Grid / List of Specialists */}
+        {}
         <div className="gap-x-4 gap-y-6 sm:gap-x-[18px] sm:gap-y-5 lg:gap-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 specialists-row">
           {specialists.map((item) => (
             <div

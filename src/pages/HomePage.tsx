@@ -14,12 +14,12 @@ import BlogSection from "../components/BlogSection/BlogSection"
 const HomePage: FC = () => {
   const { hash } = useLocation();
 
-  // Авто-скролл при переходе на главную с другой страницы по хэшу (#services, #contacts и т.д.)
+
   useEffect(() => {
     if (hash) {
       const targetId = hash.replace('#', '');
-      
-      // Небольшая задержка, чтобы DOM успел полностью отрисоваться
+
+
       const timer = setTimeout(() => {
         const element = document.getElementById(targetId);
         if (element) {
@@ -27,7 +27,7 @@ const HomePage: FC = () => {
           const elementPosition = element.getBoundingClientRect().top;
           const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-          window.scrollTo({
+          window.scrollTo( {
             top: offsetPosition,
             behavior: 'smooth',
           });
@@ -40,36 +40,36 @@ const HomePage: FC = () => {
 
   return (
     <main className="w-full">
-      {/* 1. Главная (Первый экран) */}
+      {}
       <section id="hero">
         <Banner />
       </section>
 
-      {/* О нас */}
+      {}
       <About />
 
-      {/* 2. Услуги и цены */}
+      {}
       <section id="services">
         <Features />
         <Price />
       </section>
 
-      {/* 3. Наши специалисты */}
+      {}
       <section id="specialists">
         <Specialists />
       </section>
 
-      {/* 4. Отзывы */}
+      {}
       <section id="reviews">
         <Reviews />
       </section>
 
-      {/* 5. Блог / Новости */}
+      {}
       <section id="blog">
         <BlogSection isHomePage={true}/>
       </section>
 
-      {/* 6. Контакты / Форма связи */}
+      {}
       <section id="contacts">
         <FormSection />
       </section>

@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router';
 
-// Импорт изображений
+
 import locationIcon from '../../assets/images/location.svg';
 import phoneIcon from '../../assets/images/phone.svg';
 import envelopeIcon from '../../assets/images/envelope.svg';
@@ -44,16 +44,16 @@ export const Header: React.FC = () => {
     setIsMobileMenuOpen(false);
   };
 
-  // Функция плавного скролла к элементу по ID
+
   const scrollToElement = (targetId: string) => {
     const element = document.getElementById(targetId);
 
     if (element) {
-      const headerOffset = 80; // Отступ с учетом мобильной шапки
+      const headerOffset = 80;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-      window.scrollTo({
+      window.scrollTo( {
         top: offsetPosition,
         behavior: 'smooth',
       });
@@ -62,7 +62,7 @@ export const Header: React.FC = () => {
     }
   };
 
-  // Универсальный обработчик для десктопа и мобильного меню
+
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string,
@@ -73,23 +73,23 @@ export const Header: React.FC = () => {
     if (href.startsWith('#')) {
       const targetId = href.substring(1);
 
-      // 1. Если клик из Мобильного меню
-      if (isMobile) {
-        setIsMobileMenuOpen(false); // Закрываем шторку
 
-        // Если мы на Главной — даем микрозадержку в 100мс, чтобы меню успело закрыться и не блокировало скролл
+      if (isMobile) {
+        setIsMobileMenuOpen(false);
+
+
         if (location.pathname === '/') {
           setTimeout(() => {
             scrollToElement(targetId);
           }, 100);
         } else {
-          // Если на другой странице — сразу редиректим
+
           navigate(`/${href}`);
         }
         return;
       }
 
-      // 2. Если клик из Десктопного меню
+
       if (location.pathname === '/') {
         scrollToElement(targetId);
       } else {
@@ -100,17 +100,17 @@ export const Header: React.FC = () => {
 
   return (
     <header className="relative w-full font-sans header">
-      {/* Upper Header */}
+      {}
       <div className="header-top bg-[#2378c9] py-3.5 text-white text-sm">
         <div className="mx-auto px-4 max-w-7xl container">
           <div className="header-top-row flex justify-between min-[1150px]:justify-start items-center">
-            {/* Location */}
+            {}
             <div className="header-top-location flex items-center mr-2 min-w-0 text-xs sm:text-sm">
               <img src={locationIcon} alt="Адрес" className="mr-2 sm:mr-3.5 w-4 h-4 shrink-0" />
               <span className="truncate">г.Москва, ул. Прокофьева 18</span>
             </div>
 
-            {/* Desktop Right Section */}
+            {}
             <div className="hidden header-top-right min-[1150px]:flex items-center ml-auto shrink-0">
               <a
                 href="tel:4950000000"
@@ -141,7 +141,7 @@ export const Header: React.FC = () => {
               </div>
             </div>
 
-            {/* Hamburger Button */}
+            {}
             <button
               onClick={toggleMobileMenu}
               className="min-[1150px]:hidden ml-auto p-1 focus:outline-none cursor-pointer hamburger shrink-0"
@@ -153,11 +153,11 @@ export const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* Bottom Header */}
+      {}
       <div className="header-bottom z-10 relative bg-white shadow-[1px_2px_2px_-1px_rgba(48,44,44,0.18)] py-3 sm:py-5">
         <div className="mx-auto px-4 max-w-7xl container">
           <div className="header-bottom-row flex justify-between items-center gap-x-4">
-            {/* Logo */}
+            {}
             <a
               href="#hero"
               onClick={(e) => handleNavClick(e, '#hero')}
@@ -170,7 +170,7 @@ export const Header: React.FC = () => {
               />
             </a>
 
-            {/* Desktop Navigation */}
+            {}
             <nav className="hidden min-[1150px]:block menu-nav">
               <ul className="flex items-center space-x-5 xl:space-x-8">
                 {navItems.map((item, index) => (
@@ -187,7 +187,7 @@ export const Header: React.FC = () => {
               </ul>
             </nav>
 
-            {/* CTA Button */}
+            {}
             <button
               onClick={openModal}
               className="header-bottom-btn bg-[#f86d6d] hover:bg-[#e25e5e] px-4 min-[576px]:px-6 py-2.5 min-[576px]:py-3.5 rounded-[26px] font-medium text-white text-xs min-[576px]:text-sm text-center whitespace-nowrap transition-colors duration-300 cursor-pointer shrink-0"
@@ -198,9 +198,9 @@ export const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Drawer */}
+      {}
       <div
-        className={`mobile-menu fixed inset-y-0 right-0 w-full sm:w-[380px] bg-[#0e6eaa] text-white p-5 shadow-2xl transition-transform duration-500 ease-in-out z-50 overflow-y-auto min-[1150px]:hidden ${
+        className={`mobile-menu fixed inset-y-0 right-0 w-full sm:w-[380px] bg-[#0e6eaa] text-white p-5 shadow-2xl transition-transform duration-500 ease-in-out z-50 overflow-y-auto min-[1150px]:hidden $ {
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
@@ -232,7 +232,7 @@ export const Header: React.FC = () => {
             <a href="#"><img src={vkIcon} alt="Vk" className="w-5" /></a>
           </div>
 
-          {/* Мобильная навигация */}
+          {}
           <nav className="mt-8 mobile-menu-nav">
             <ul className="space-y-6">
               {navItems.map((item, index) => (
@@ -251,7 +251,7 @@ export const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* Backdrop Overlay */}
+      {}
       {isMobileMenuOpen && (
         <div
           onClick={toggleMobileMenu}
@@ -259,7 +259,7 @@ export const Header: React.FC = () => {
         />
       )}
 
-      {/* Modal */}
+      {}
       {isModalOpen && (
         <div className="z-50 fixed inset-0 flex justify-center items-center bg-black/60 backdrop-blur-sm p-4 animate-fadeIn">
           <div
