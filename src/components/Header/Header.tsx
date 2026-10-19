@@ -200,7 +200,7 @@ export const Header: React.FC = () => {
 
       {}
       <div
-        className={`mobile-menu fixed inset-y-0 right-0 w-full sm:w-[380px] bg-[#0e6eaa] text-white p-5 shadow-2xl transition-transform duration-500 ease-in-out z-50 overflow-y-auto min-[1150px]:hidden $ {
+        className={`mobile-menu fixed inset-y-0 right-0 w-full sm:w-[380px] bg-[#0e6eaa] text-white p-5 shadow-2xl transition-transform duration-500 ease-in-out z-50 overflow-y-auto min-[1150px]:hidden ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >

@@ -309,7 +309,7 @@ const Appointment: React.FC = () => {
                       placeholder="Ваше имя *"
                       aria-invalid={!!errors.name}
                       aria-describedby={errors.name ? 'name-error' : undefined}
-                      className={`w-full border rounded-[10px] p-[18px_22px] text-[18px] outline-none placeholder-[#b9b9b9] transition-colors $ {
+                      className={`w-full border rounded-[10px] p-[18px_22px] text-[18px] outline-none placeholder-[#b9b9b9] transition-colors ${
                         errors.name
                           ? 'border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500'
                           : 'border-[#e4e4e4] focus:border-[#5eb8f0] focus:ring-1 focus:ring-[#5eb8f0]'
@@ -337,7 +337,7 @@ const Appointment: React.FC = () => {
                       placeholder="Ваш телефон *"
                       aria-invalid={!!errors.phone}
                       aria-describedby={errors.phone ? 'phone-error' : undefined}
-                      className={`w-full border rounded-[10px] p-[18px_22px] text-[18px] outline-none placeholder-[#b9b9b9] transition-colors $ {
+                      className={`w-full border rounded-[10px] p-[18px_22px] text-[18px] outline-none placeholder-[#b9b9b9] transition-colors ${
                         errors.phone
                           ? 'border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500'
                           : 'border-[#e4e4e4] focus:border-[#5eb8f0] focus:ring-1 focus:ring-[#5eb8f0]'
@@ -365,7 +365,7 @@ const Appointment: React.FC = () => {
                       placeholder="Ваш email *"
                       aria-invalid={!!errors.email}
                       aria-describedby={errors.email ? 'email-error' : undefined}
-                      className={`w-full border rounded-[10px] p-[18px_22px] text-[18px] outline-none placeholder-[#b9b9b9] transition-colors $ {
+                      className={`w-full border rounded-[10px] p-[18px_22px] text-[18px] outline-none placeholder-[#b9b9b9] transition-colors ${
                         errors.email
                           ? 'border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500'
                           : 'border-[#e4e4e4] focus:border-[#5eb8f0] focus:ring-1 focus:ring-[#5eb8f0]'
@@ -393,7 +393,7 @@ const Appointment: React.FC = () => {
                       rows={5}
                       aria-invalid={!!errors.comment}
                       aria-describedby={errors.comment ? 'comment-error' : undefined}
-                      className={`w-full border rounded-[10px] p-[18px_22px] text-[18px] outline-none placeholder-[#b9b9b9] h-[180px] sm:h-[220px] resize-y transition-colors $ {
+                      className={`w-full border rounded-[10px] p-[18px_22px] text-[18px] outline-none placeholder-[#b9b9b9] h-[180px] sm:h-[220px] resize-y transition-colors ${
                         errors.comment
                           ? 'border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500'
                           : 'border-[#e4e4e4] focus:border-[#5eb8f0] focus:ring-1 focus:ring-[#5eb8f0]'

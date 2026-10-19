@@ -302,7 +302,7 @@ const BlogSingle: React.FC<BlogSingleProps> = ( {
                   value={formData.author}
                   onChange={handleInputChange}
                   onBlur={handleBlur}
-                  className={`w-full rounded-[10px] border px-[22px] py-[18px] text-lg outline-none transition-colors placeholder:text-[#b9b9b9] $ {
+                  className={`w-full rounded-[10px] border px-[22px] py-[18px] text-lg outline-none transition-colors placeholder:text-[#b9b9b9] ${
                     errors.author
                       ? 'border-red-500 focus:border-red-500'
                       : 'border-[#e4e4e4] focus:border-[#2378c9]'
@@ -323,7 +323,7 @@ const BlogSingle: React.FC<BlogSingleProps> = ( {
                   value={formData.email}
                   onChange={handleInputChange}
                   onBlur={handleBlur}
-                  className={`w-full rounded-[10px] border px-[22px] py-[18px] text-lg outline-none transition-colors placeholder:text-[#b9b9b9] $ {
+                  className={`w-full rounded-[10px] border px-[22px] py-[18px] text-lg outline-none transition-colors placeholder:text-[#b9b9b9] ${
                     errors.email
                       ? 'border-red-500 focus:border-red-500'
                       : 'border-[#e4e4e4] focus:border-[#2378c9]'
@@ -344,7 +344,7 @@ const BlogSingle: React.FC<BlogSingleProps> = ( {
                     onChange={handleInputChange}
                     onBlur={handleBlur}
                     maxLength={MAX_COMMENT_LENGTH}
-                    className={`h-[200px] w-full resize-none rounded-[10px] border px-[22px] py-[18px] text-lg outline-none transition-colors placeholder:text-[#b9b9b9] $ {
+                    className={`h-[200px] w-full resize-none rounded-[10px] border px-[22px] py-[18px] text-lg outline-none transition-colors placeholder:text-[#b9b9b9] ${
                       errors.comment
                         ? 'border-red-500 focus:border-red-500'
                         : 'border-[#e4e4e4] focus:border-[#2378c9]'

@@ -125,7 +125,7 @@ interface FormErrors {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Ваше имя"
-                    className={`w-full rounded-[10px] border px-[25px] py-[18px] text-[18px] outline-none transition-colors placeholder:text-[#b9b9b9] placeholder:font-['Source_Sans_Pro'] $ {
+                    className={`w-full rounded-[10px] border px-[25px] py-[18px] text-[18px] outline-none transition-colors placeholder:text-[#b9b9b9] placeholder:font-['Source_Sans_Pro'] ${
                       errors.name ? 'border-red-500 bg-red-50/30' : 'border-[#e4e4e4] focus:border-[#5eb8f0]'
                     }`}
                   />
@@ -144,7 +144,7 @@ interface FormErrors {
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="Ваш телефон"
-                    className={`w-full rounded-[10px] border px-[25px] py-[18px] text-[18px] outline-none transition-colors placeholder:text-[#b9b9b9] placeholder:font-['Source_Sans_Pro'] $ {
+                    className={`w-full rounded-[10px] border px-[25px] py-[18px] text-[18px] outline-none transition-colors placeholder:text-[#b9b9b9] placeholder:font-['Source_Sans_Pro'] ${
                       errors.phone ? 'border-red-500 bg-red-50/30' : 'border-[#e4e4e4] focus:border-[#5eb8f0]'
                     }`}
                   />
